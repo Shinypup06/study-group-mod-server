@@ -1,11 +1,23 @@
-.group {
-    
+.lancer{
+    float: left;
+    width: 120px;
+    height: 100px;
 }
 
 .livi {
+    text-align: justify;
     color: white;
     border: 3px solid rgb(1, 64, 1);
     font-family: serif;
     background-color: darkgreen;
     background-size: 30px;
+    font-style: italic;
+}
+
+h3{
+    border: 3px solid rgb(153, 191, 204);
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 150px;
+    height: fit-content;
 }
