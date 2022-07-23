@@ -1,0 +1,20 @@
+.create{
+    left: 12%;
+    width: 66%;
+    height: 40px;
+    background-color: darkgreen;
+    color: white;
+    position: absolute;
+    text-align: center;
+}
+
+.input{
+    position: absolute;
+    left: 12%;
+    width: 66%;
+    background-color: beige;
+    text-align: center;
+}
+.text{
+    display: block;
+}
