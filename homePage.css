@@ -61,3 +61,14 @@ a{
     font-style: italic;
     color: white;
 }
+
+.hardcode{
+    position: absolute;
+    background-color: beige;
+    width: 60%;
+    left: 20%;
+}
+
+.alan{
+    width: 100px;
+}
