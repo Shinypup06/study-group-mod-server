@@ -1,0 +1,14 @@
+.square {
+    height: 400px;
+    width: 150px;
+    background-color: beige;
+    border: 5px solid rgb(218, 218, 172);
+  }
+
+.class{
+    position: absolute;
+    text-align: center;
+    top: 71px;
+    border: 5px solid rgb(218, 218, 172);
+    width: 150px;
+}
