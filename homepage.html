@@ -34,18 +34,32 @@
       <h3>Create Posts</h3>
     </a>
   </div>
-
+  
   <ol>
-    <div class="hardcode">
-      <div class="tim">
-        <p>Modern World History</p>
-        <p>7/26/2022</p>
-      </div>
-      <h4>This is a hardcode post</h4>
-      <p>Hello alan - This is my test for a hardcode post. I'm not really sure how you want me to format it, but right now this is how it looks like.</p>
-      <img src="https://tapinto-production.s3.amazonaws.com/uploads/articles/he/best_crop_7e9f9e893aaf14fc4674_Heritage_Team_A_Middle_School_National_Championship_Tournament_2021.jpg?id=3524574" width="500">
-    </div>
+    
   </ol>
   
+  <script src="threadData.js"></script>
+  <script>
+    let container = document.querySelector("ol");
+    for (let post of posts) {
+      var html = `
+      <li>
+        <div class="post">
+          <div class="info">
+            <p class="className">${post.className}</p>
+            <p class="Date">${new Date(post.date).toLocaleString()}</p>
+            <p class="author">${post.author}</p>
+          </div>
+          <h4 class="title">${post.title}</h4>
+          <p class="content">${post.content}</p>
+          <img src="https://tapinto-production.s3.amazonaws.com/uploads/articles/he/best_crop_7e9f9e893aaf14fc4674_Heritage_Team_A_Middle_School_National_Championship_Tournament_2021.jpg?id=3524574" width="500">
+        </div>
+      </li>
+      `
+      container.insertAdjacentHTML('beforeend', html);
+    }
+  </script>
+
 </body>
 </html>
