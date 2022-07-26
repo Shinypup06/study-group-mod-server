@@ -15,7 +15,7 @@
     background-color: beige;
     text-align: center;
 }
-.text{
-    display: block;
+input[type="text"] {
+    width: 600px;
+    height: 200px;
 }
-
