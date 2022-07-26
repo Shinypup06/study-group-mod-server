@@ -19,3 +19,8 @@ input[type="text"] {
     width: 600px;
     height: 200px;
 }
+input[type="file"]{
+    position: absolute;
+    left: 150px;
+    top: 23px;
+}
