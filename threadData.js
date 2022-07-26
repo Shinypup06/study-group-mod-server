@@ -5,6 +5,8 @@
  * Loop through list (for loop) to get all of the post elements of the array
  * Posts are individual jsons
  * Display posts using DOM
+ * 
+ * JSONs should be stored on the database so that it can be saved
  */
 
 let posts = [
