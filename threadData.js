@@ -16,6 +16,11 @@ let posts = [
         className: "Coding",
         classPeriod: 0,
         content: "this is a sample post",
+        files: [
+            {
+                img: null,
+            }
+        ],
         date: Date.now(),
         // embedded comment array element, works similarly to post json where you loop through to get info
         comments: [
