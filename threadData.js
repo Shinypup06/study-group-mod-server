@@ -16,11 +16,7 @@ let posts = [
         className: "Coding",
         classPeriod: 0,
         content: "this is a sample post",
-        files: [
-            {
-                img: null,
-            }
-        ],
+        img: "https://tapinto-production.s3.amazonaws.com/uploads/articles/he/best_crop_7e9f9e893aaf14fc4674_Heritage_Team_A_Middle_School_National_Championship_Tournament_2021.jpg?id=3524574",
         date: Date.now(),
         // embedded comment array element, works similarly to post json where you loop through to get info
         comments: [
