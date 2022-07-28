@@ -1,0 +1,16 @@
+.enter{
+    position: absolute;
+    left: 25%;
+    top: 15%;
+}
+
+.edit{
+    position: absolute;
+    left: 7%;
+    top: 47%;
+}
+
+input[type="number"] {
+    width: 70px;
+    height: 20px;
+}
