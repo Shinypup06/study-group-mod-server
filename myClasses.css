@@ -73,3 +73,11 @@
   width: 824px;
   height: 474px;
 }
+
+input[type="text"] {
+  width: 600px;
+  height: 20px;
+  position: absolute;
+  top: 96%;
+  left: 30%;
+}
