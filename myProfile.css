@@ -1,7 +1,11 @@
 .enter{
     position: absolute;
     left: 25%;
-    top: 15%;
+    top: 19%;
+    background-color: beige;
+    border: 2px solid rgb(218, 218, 172);
+    height: 200px;
+    width: 220px;
 }
 
 .edit{
@@ -13,4 +17,12 @@
 input[type="number"] {
     width: 70px;
     height: 20px;
+}
+
+.Bio{
+    position: absolute;
+    left: 45%;
+    top: 19%;
+    background-color: beige;
+    border: 2px solid rgb(218, 218, 172);
 }
