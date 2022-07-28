@@ -1,6 +1,8 @@
 .square {
-    height: 400px;
-    width: 150px;
+    position: absolute;
+    height: 500px;
+    top: 90px;
+    width: 90px;
     background-color: beige;
     border: 5px solid rgb(218, 218, 172);
   }
@@ -10,5 +12,53 @@
     text-align: center;
     top: 71px;
     border: 5px solid rgb(218, 218, 172);
-    width: 150px;
+    background-color: rgb(218, 218, 172);
+    width: 90px;
+}
+.square2 {
+  height: 500px;
+  width: 150px;
+  background-color: beige;
+  border: 5px solid rgb(218, 218, 172);
+  position: absolute;
+  left: 86%;
+  top: 90px;
+}
+
+.classmates{
+  position: absolute;
+  text-align: center;
+  top: 71px;
+  left: 86%;
+  border: 5px solid rgb(218, 218, 172);
+  background-color: rgb(218, 218, 172);
+  width: 150px;
+}
+
+.square3 {
+  height: 500px;
+  width: 150px;
+  background-color: beige;
+  border: 5px solid rgb(218, 218, 172);
+  position: absolute;
+  left: 8.2%;
+  top: 90px;
+}
+.chats{
+  position: absolute;
+  text-align: center;
+  top: 71px;
+  left: 8.2%;
+  border: 5px solid rgb(218, 218, 172);
+  background-color: rgb(218, 218, 172);
+  width: 150px;
+}
+
+.topbar{
+  position: absolute;
+  top: 90px;
+  left: 20%;
+  background-color: rgb(218, 218, 172);
+  width: 850px;
+  height: 31px;
 }
