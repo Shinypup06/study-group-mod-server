@@ -1,0 +1,11 @@
+.mainpost{
+    position: absolute;
+    width: 50%;
+    text-align: center;
+    left: 25%;
+    background-color: beige;
+}
+
+.img{
+    width: 500px;
+}
