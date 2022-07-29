@@ -16,7 +16,7 @@ let posts = [
         className: "Coding",
         classPeriod: 0,
         content: "this is a sample post",
-        img: "https://nj.vsand-static.com/Logos/3711.png?maxwidth=1100&maxheight=1100",
+        img: "https://nj.vsand-static.com/Logos/3711.png?maxwidth=600&maxheight=600",
         date: Date.now(),
         // embedded comment array element, works similarly to post json where you loop through to get info
         comments: [
