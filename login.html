@@ -1,0 +1,142 @@
+<html>
+
+<!--    Well, hi I guess!! Here's some notes for whoever wants to expand on this page.
+        btw, just for reference, I like to embed the CSS and js in the html file. So, 
+        the CSS n js code is at the bottom of this file, just scroll down! -Shiny -->
+
+<!--    Here's a list of things to work on this file in the future: -->
+
+    <!--1.  the loadMain function needs to be linked to server side. 
+            Currently, it only works for username "Admin" and password "123456".
+            More instructions provided where the loadMain function is declared.
+            IMPORTANT- make sure you don't directly declare any of the usernames/passwords
+            in a list in the html code. THIS MUST ALWAYS BE STORED SERVER-SIDE.
+            otherwise, someone could just click inspect and steal everyone's login
+            info. -->
+
+    <!--2.  Not sure if it has to do directly with the code for this file, but
+            we need to make sure for all the other files that:
+                if (sessionStorage.getItem("loggedIn") != "True"){
+                    [some function that redirects you to login page immediately]
+                }
+        
+            This essentially ensures that if you're not logged in, you can't access
+            any pages of the website (otherwise login would be a mood point). I would
+            add this to every page other than this current login one once server side
+            is up and running.-->
+
+    <!--3.  We need to create a "sign up" page. Don't worry about this too much for now,
+            I'm working on it! :)  -->
+
+    <head>
+        <title>
+            <!--IMPORTANT - Once the actual website name (NOT LSD FFS) is decided, put it here :D-->
+            Login to [Website name]
+        </title>
+    </head>
+
+    <!-- This is just the font import. I got it from fonts.google.com if anyone wants to check it out-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+
+    
+
+    <body>
+        <!-- I made a div for the login box, which is basically the area where it says login and the info stuff. It's got a border.-->
+        <div id="loginbox">
+        <h1>
+            LOGIN:
+        </h1>
+        <br/>
+        <form id="form1" name="form1">
+            <input type="text" placeholder = "Username" id="uname" class="login">
+            <input type="password" placeholder = "Password" id="paswd" class="login"> 
+            <br/>
+            <br/>
+            <!-- The loadMain function basically logs you in. Scroll down for js embed.-->
+            <input type="button" onclick="loadMain()" value = "Submit">
+            
+        </form>
+        <br/>
+        <!--In case you're confused, if you put in the wrong username or pswd it'll display errortext. 
+            Don't worry, it doesn't say nothing- It won't display it until there's one failed attempt.
+            The text in this <p> tag is replaced in the else{} condition of the loadMain function.-->
+        <p id = "errortext">
+            <br/>
+        </p>
+        <br/> 
+        </div>
+        <script>
+            // IMPORTANT FOR BACK-END!
+            // Under the following function loadmain(), "Admin" is currently set to be the only username, and "123456" the password.
+            // Once the server side is working, please change these accordingly depending on how you plan on storing login info.
+            // This could be a list/array, whatever-!
+                function loadMain() {
+                // This function is essentially just the "login" function but i wanted to be fancy and name it something else (jk)
+                username = document.getElementById("uname")
+                password = document.getElementById("paswd")
+                // IMPORTANT!!
+                // username and password are simply the input elements. In order to retrieve the user's input,
+                // you have to use username.value as shown below. Otherwise it won't work.
+                if(username.value == "Admin" && password.value == "123456"){
+                    sessionStorage.setItem("username", username.value);
+                    sessionStorage.setItem("loggedIn", "True");
+                    //This is just for future reference- make sure if the loggedIn variable is false, that it takes the user back
+                    //to the login page immediately. This can happen when another user sends a link that skips past the login page.
+                    location.href= "homepage.html"
+                }
+                else{
+                    document.getElementById("errortext").innerHTML = `Incorrect username or password. Try again.`;
+                    // displays the errortext expained earlier.
+                }      
+            }
+
+        </script>
+
+        <style>
+            .login{
+                border: 2px solid #aaa;
+                margin: 10px;
+                width:150px;
+                padding:10px;
+                border-radius: 20px;
+            }
+
+            #Submit{
+                margin: 10px;
+                padding:10px;
+                border-radius: 20px;
+                /*I'm not exactly sure you can change the css for submit buttons, but I can try... Q-Q*/
+            }
+
+            #errortext {
+                font-size:15;
+                color:red;
+                padding:10px;
+                margin:10px;
+            }
+            #loginbox{
+                background-color:beige;
+                padding-left:200px;
+                padding-right:200px;
+                border:10px;
+                border:tan;
+                border-style: solid;
+            }
+            body{
+                text-align:center;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                background-color: #FFFDF6;
+            }
+            h1 {
+                font-family: "Crete Round";
+                padding-top: 40px;
+            }
+        
+        </style>
+
+    </body>
+</html>
