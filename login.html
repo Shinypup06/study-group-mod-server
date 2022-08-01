@@ -29,8 +29,8 @@
             I'm working on it! :)  -->
 
     <head>
+        <!--IMPORTANT - Once the actual website name (NOT LSD FFS) is decided, put it here :D-->
         <title>
-            <!--IMPORTANT - Once the actual website name (NOT LSD FFS) is decided, put it here :D-->
             Login to [Website name]
         </title>
     </head>
@@ -55,15 +55,14 @@
             <br/>
             <br/>
             <!-- The loadMain function basically logs you in. Scroll down for js embed.-->
-            <input type="button" onclick="loadMain()" value = "Submit">
+            <input type="button" id="submit" onclick="loadMain()" value = "Submit">
             
         </form>
-        <br/>
+
         <!--In case you're confused, if you put in the wrong username or pswd it'll display errortext. 
             Don't worry, it doesn't say nothing- It won't display it until there's one failed attempt.
             The text in this <p> tag is replaced in the else{} condition of the loadMain function.-->
         <p id = "errortext">
-            <br/>
         </p>
         <br/> 
         </div>
@@ -103,10 +102,16 @@
                 border-radius: 20px;
             }
 
-            #Submit{
+            #submit{
                 margin: 10px;
                 padding:10px;
                 border-radius: 20px;
+                background-color: rgb(1, 64, 1);
+                color: white;
+                width: 150px;
+                height:50px;
+                font-family: "Crete Round";
+                font-size:16;
                 /*I'm not exactly sure you can change the css for submit buttons, but I can try... Q-Q*/
             }
 
@@ -117,11 +122,11 @@
                 margin:10px;
             }
             #loginbox{
-                background-color:beige;
+                background-color:rgb(208, 239, 208);
                 padding-left:200px;
                 padding-right:200px;
                 border:10px;
-                border:tan;
+                border:rgb(1, 64, 1);
                 border-style: solid;
             }
             body{
@@ -129,7 +134,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
-                background-color: #FFFDF6;
+                background-color: rgb(255, 255, 255);
             }
             h1 {
                 font-family: "Crete Round";
