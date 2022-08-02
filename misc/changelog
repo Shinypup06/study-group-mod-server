@@ -8,3 +8,10 @@ Changes by: Shining
   - GUYS YOU NEED TO READ CHANGELOG MORE >:(
   - Added login page. Details on improvements that need to be made to this page have been added as comments.
   - I dunno if you guys care but I also explained the code if you wanna look at it!
+
+08/02/2022
+Changes by: Shining
+  - Made a better navbar for all the current existing pages. There are some bugs that I will fix later.
+  - The subpages will have a smaller navbar.
+  - In case we make more pages (which we probably will), turned all the CSS of the smaller navbar into its separate file.
+    - In order to use it, just link it in the <head> section. You still have to copy/paste the html part though.
