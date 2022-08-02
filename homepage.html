@@ -10,6 +10,13 @@
 </head>
 <body>
 
+  <!--IMPORTANT: COPY/PASTE THIS SNIPPET BELOW INTO EVERY SINGLE PAGE!
+      it ensures that you cannot access the site if you are not logged in.-->
+  <script>
+    if (sessionStorage.getItem("loggedIn") != "True"){
+      window.location.href = "login.html";
+    }
+  </script>
 
   <ul class="navbar">
 
