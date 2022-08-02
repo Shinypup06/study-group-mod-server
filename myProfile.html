@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <title>Home - LSD</title>
   <link href="header.css" rel="stylesheet">
   <link href="myProfile.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="group">
     <a href="./homepage.html"><img class="lancer" src="https://nj.vsand-static.com/Logos/3711.png?maxwidth=1100&maxheight=1100" alt=""></a>
@@ -13,25 +15,48 @@
   </div>
   <br>
 
-  <div class="picture">
-    <img src="https://www.gannett-cdn.com/presto/2020/03/17/USAT/c0eff9ec-e0e4-42db-b308-f748933229ee-XXX_ThinkstockPhotos-200460053-001.jpg?crop=1170%2C658%2Cx292%2Cy120&width=1200" width="300"/>
-    <p class="edit">edit profile picture</p>
-  </div>
-  
-  <div class="enter">
-    <h4>My Name<form><input type="text"></form></h4>
-    <h4>Grade<form><input type="number"></form></h4>
-    <h4>Roles:</h4>
-  </div>
-  <br>
+
+<div class="rightColumnTop">
+  <h3 id="unameMesg"></h3>
+
   <h4>Friends List:</h4>
-  <br>
-  <br>
   <h4>Class List:</h4>
-  <div class="Bio">
-    <h4>My Bio</h4>
-    <textarea rows="9" cols="40"></textarea>
+</div>
+
+
+  <div class="leftColumn">
+    <p class="pfp"><img src="https://www.w3schools.com/w3images/avatar3.png" style="height:200px;width:200px" alt="Avatar"></p>
+    <h4>
+      My Name
+      <form><input type="text"></form>
+    </h4>
+    
+    <h4>
+      Grade
+      <form><input type="number"></form>
+    </h4>
+
+    <h4>
+      My Bio
+      <form><input type="text" id="bio"></form>
+    </h4>
+
+    <h4>
+      My Roles
+        <form><input type="text" id="roles"></form>
+    </h4>
   </div>
+
+  <div class="rightColumnBottom">
+    <h3 id="unamePosts"></h3>
+    <div id="postsThreadList">
+      <p>insert posts here I guess... backend someone please do something</p>
+    </div>
+  </div>
+<script>
+  document.getElementById("unameMesg").innerHTML = `${sessionStorage.getItem("username")}'s Profile`;
+  document.getElementById("unamePosts").innerHTML = `${sessionStorage.getItem("username")}'s Posts`;
+</script>
   
   
 </body>
