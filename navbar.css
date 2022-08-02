@@ -1,0 +1,68 @@
+/*the css code for the navigation bar for all of the sub-pages (everything except homepage.html).*/
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgreen;
+    position:fixed;
+    top:20px;
+    left:0px;
+    width:100%;
+}
+.lancer{
+    margin-left:10px;
+    margin-top:5px;
+    padding:0;
+    position:absolute;
+}
+.logo{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+
+li {
+    float: left;
+}
+.homeButton{
+    font-family: "Crete Round";
+    font-size: 20px;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.barButton{
+    font-family: "Crete Round";
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navButton {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 24px;
+    text-decoration: none;
+}
+
+.navButton:hover {
+    background-color: rgb(2, 50, 0);
+}
+
+a {
+    color:white;
+}
+
+.homeButton{
+    font-family: "Crete Round";
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.barButton{
+    font-family: "Crete Round";
+    font-size: 16px;
+    text-decoration: none;
+}
