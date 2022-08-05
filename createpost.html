@@ -39,17 +39,21 @@
 <br/>
 <br/>
   </div>
-  <h2 class="create">Create Post</h2>
-  <br>
-  <br>
-  <br>
-  <div class="input">
-    <h4>Title</h4>
-    <form class="text"><input type="text"></form>
-    <form><input type="file"></form>
-    <h4>Text</h4>
-    <form><textarea rows="10" cols="80"></textarea></form>
-    <button type="button">Post</button>
+    <form action="createPost.php" method="post"></form>
+    <h2 class="create">Create Post</h2>
+    <br>
+    <br>
+    <br>
+    <div class="input">
+      <form action=".createPost.php">
+        <h4>Title</h4>
+        <input type="text" name="title">
+        <input type="file" name="file">
+        <h4>Text</h4>
+        <textarea rows="10" cols="80" name="text"></textarea>
+        <br>
+        <button type="submit">Post</button>
+      </form>   
   </div>
   
   
