@@ -14,21 +14,10 @@
             otherwise, someone could just click inspect and steal everyone's login
             info. -->
 
-    <!--2.  Not sure if it has to do directly with the code for this file, but
-            we need to make sure for all the other files that:
-                if (sessionStorage.getItem("loggedIn") != "True"){
-                    [some function that redirects you to login page immediately]
-                }
-        
-            This essentially ensures that if you're not logged in, you can't access
-            any pages of the website (otherwise login would be a mood point). I would
-            add this to every page other than this current login one once server side
-            is up and running.-->
-
-    <!--3.  We need to create a "sign up" page. Don't worry about this too much for now,
+    <!--2.  We need to create a "sign up" page. Don't worry about this too much for now,
             I'm working on it! :)  -->
     
-    <!--4.  Actually, now that I think about it, this login page looks kinda naked with just
+    <!--3.  Actually, now that I think about it, this login page looks kinda naked with just
             a box in the middle. Help me think of ideas of what to put in the background-
             should we keep the nav bar just so it doesn't look empty or fake?-->
 
@@ -69,32 +58,40 @@
             The text in this <p> tag is replaced in the else{} condition of the loadMain function.-->
         <p id = "errortext">
         </p>
+
+        <p id="logouttext"></p>
         <br/> 
         </div>
         <script>
+                if(sessionStorage.getItem("logOutMsg")== "True"){
+                    document.getElementById("logouttext").innerHTML = "You have been successfully logged out.";
+                }
+
             // IMPORTANT FOR BACK-END!
             // Under the following function loadmain(), "Admin" is currently set to be the only username, and "123456" the password.
             // Once the server side is working, please change these accordingly depending on how you plan on storing login info.
             // This could be a list/array, whatever-!
                 function loadMain() {
+                    sessionStorage.setItem("logOutMsg", "False");
+                    document.getElementById("logouttext").innerHTML = "";
                 // This function is essentially just the "login" function but i wanted to be fancy and name it something else (jk)
-                username = document.getElementById("uname")
-                password = document.getElementById("paswd")
+                    username = document.getElementById("uname")
+                    password = document.getElementById("paswd")
                 // IMPORTANT!!
                 // username and password are simply the input elements. In order to retrieve the user's input,
                 // you have to use username.value as shown below. Otherwise it won't work.
-                if(username.value == "Admin" && password.value == "123456"){
-                    sessionStorage.setItem("username", username.value);
-                    sessionStorage.setItem("loggedIn", "True");
-                    //This is just for future reference- make sure if the loggedIn variable is false, that it takes the user back
-                    //to the login page immediately. This can happen when another user sends a link that skips past the login page.
-                    location.href= "homepage.html"
+                    if(username.value == "Admin" && password.value == "123456"){
+                        sessionStorage.setItem("username", username.value);
+                        sessionStorage.setItem("loggedIn", "True");
+                        //This is just for future reference- make sure if the loggedIn variable is false, that it takes the user back
+                        //to the login page immediately. This can happen when another user sends a link that skips past the login page.
+                        location.href= "homepage.html"
+                    }
+                    else{
+                        document.getElementById("errortext").innerHTML = `Incorrect username or password. Try again.`;
+                        // displays the errortext expained earlier.
+                    }      
                 }
-                else{
-                    document.getElementById("errortext").innerHTML = `Incorrect username or password. Try again.`;
-                    // displays the errortext expained earlier.
-                }      
-            }
 
         </script>
 
