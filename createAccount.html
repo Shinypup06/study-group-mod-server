@@ -59,9 +59,9 @@
             if(sessionStorage.getItem("arrayIsSet") == null){
                 window.location.href = "login.html";
             }
+            sessionStorage.setItem("logOutMsg", "False");
 
                 function makeAcc() {
-                    sessionStorage.setItem("logOutMsg", "False");
                     currentaccs = sessionStorage.getItem("accounts");
                     console.log(currentaccs);
 
@@ -135,7 +135,7 @@
             .makeAcc{
                 border: 2px solid #aaa;
                 margin: 10px;
-                width:150px;
+                width:300px;
                 padding:10px;
                 border-radius: 20px;
             }
