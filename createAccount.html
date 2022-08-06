@@ -70,6 +70,11 @@
                     let password2 = document.getElementById("paswd2");
                     let email = document.getElementById("email");
 
+                    username.style.borderColor= "#aaa";
+                    password.style.borderColor= "#aaa";
+                    password2.style.borderColor= "#aaa";
+                    email.style.borderColor = "#aaa";
+
                     console.log(username.value);
 
                     const parsed = JSON.parse(currentaccs);
@@ -77,21 +82,26 @@
                     const parsedPW = parsed.pw;
 
                     if(parsedUN.includes(username.value)){
-                        // username.style.borderColor="Red";
+                        username.style.borderColor="Red";
                         document.getElementById("errortext").innerHTML = `That username is already in use.`;
                     }
 
                     // else if ()
 
                     else if (password.value != password2.value){
+                        password.style.borderColor= "Red";
+                        password2.style.borderColor= "Red";
                         document.getElementById("errortext").innerHTML = `Your passwords do not match. Check again.`;
                     }
 
                     else if (username.value == ''){
+                        username.style.borderColor="Red";
                         document.getElementById("errortext").innerHTML = `Please enter a username.`;
                     }
 
                     else if (password.value == ''){
+                        password.style.borderColor= "Red";
+                        password2.style.borderColor= "Red";
                         document.getElementById("errortext").innerHTML = `Please enter a password.`;
                     }
 
@@ -100,19 +110,29 @@
                     }
 
                     else if (password.value.includes(" ")){
+                        username.style.borderColor="Red";
                         document.getElementById("errortext").innerHTML = `Your password cannot contain spaces.`;
                     }
 
                     else if (email.value == ''){
+                        email.style.borderColor = "Red";
                         document.getElementById("errortext").innerHTML = `Please enter a valid email.`;
                     }
 
                     else if (!email.value.includes("@")){
+                        email.style.borderColor = "Red";
                         document.getElementById("errortext").innerHTML = `Please enter a valid email.`;
                     }
 
                     else if (!email.value.includes("@lps-students.org")){
+                        email.style.borderColor = "Red";
                         document.getElementById("errortext").innerHTML = `Please enter your school-issued email.`;
+                    }
+
+                    else if (password.value.length < 8){
+                        password.style.borderColor= "Red";
+                        password2.style.borderColor= "Red";
+                        document.getElementById("errortext").innerHTML = `Password must be minimum 8 characters.`;
                     }
 
                     else{
