@@ -91,26 +91,29 @@
                     sessionStorage.setItem("logOutMsg", "False");
                     document.getElementById("logouttext").innerHTML = "";
                 
-                    username = document.getElementById("uname")
-                    password = document.getElementById("paswd")
-
+                    username = document.getElementById("uname");
+                    password = document.getElementById("paswd");
+                    console.log(parsedUN.indexOf(username.value));
+                    console.log(parsedPW.indexOf(password.value));
                     
                     let user = username.value;
                     let pw = password.value;
 
 
-                    if(parsedUN.includes(user)){
-                        if(parsedPW.includes(pw)){
+                    if(parsedUN.includes(user) && parsedPW.includes(pw)){
+
+                        if(parsedUN.indexOf(username.value) == parsedPW.indexOf(password.value)){
                             sessionStorage.setItem("username", username.value);
                             sessionStorage.setItem("loggedIn", "True");
                             location.href= "homepage.html";
                         }
+
                         else{
-                            document.getElementById("errortext").innerHTML = `Incorrect password. Try again.`;
+                            document.getElementById("errortext").innerHTML = `Incorrect username or password. Try again.`;
                         }
                     }
                     else{
-                        document.getElementById("errortext").innerHTML = `Hmm, we don't seem to have that account on our database.`;
+                        document.getElementById("errortext").innerHTML = `Incorrect username or password. Try again.`;
                     }
 
                 }
