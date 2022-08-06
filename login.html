@@ -7,7 +7,7 @@
 <!--    Here's a list of things to work on this file in the future: -->
 
     <!--1.  the loadMain function needs to be linked to server side. 
-            Currently, it only works for username "Admin" and password "123456".
+            Currently, it only works for username "Admin" and password "123456" (and any locally created accounts).
             More instructions provided where the loadMain function is declared.
             IMPORTANT- make sure you don't directly declare any of the usernames/passwords
             in a list in the html code. THIS MUST ALWAYS BE STORED SERVER-SIDE.
@@ -37,7 +37,7 @@
     
 
     <body>
-        <!-- I made a div for the login box, which is basically the area where it says login and the info stuff. It's got a border.-->
+       
         <div id="loginbox">
         <h1>
             LOGIN:
@@ -48,21 +48,37 @@
             <input type="password" placeholder = "Password" id="paswd" class="login"> 
             <br/>
             <br/>
-            <!-- The loadMain function basically logs you in. Scroll down for js embed.-->
+
             <input type="button" id="submit" onclick="loadMain()" value = "Submit">
             
         </form>
 
-        <!--In case you're confused, if you put in the wrong username or pswd it'll display errortext. 
-            Don't worry, it doesn't say nothing- It won't display it until there's one failed attempt.
-            The text in this <p> tag is replaced in the else{} condition of the loadMain function.-->
         <p id = "errortext">
         </p>
 
         <p id="logouttext"></p>
+
+        <p>New here? <a href = "createAccount.html">Create an Account</a></p>
         <br/> 
         </div>
         <script>
+            
+
+            if(sessionStorage.getItem("arrayIsSet") == null){
+                console.log("it ran!");
+                stringList = JSON.stringify({"un":["Admin"], "pw": ["123456"]})
+                sessionStorage.setItem("accounts",stringList);
+                sessionStorage.setItem("arrayIsSet","true");
+            }
+
+
+                accs = sessionStorage.getItem("accounts");
+                const parsed = JSON.parse(accs);
+                const parsedUN = parsed.un;
+                const parsedPW = parsed.pw;
+                console.log(parsedUN.indexOf('Admin'));
+                console.log(parsedPW.indexOf('123456'));
+
                 if(sessionStorage.getItem("logOutMsg")== "True"){
                     document.getElementById("logouttext").innerHTML = "You have been successfully logged out.";
                 }
@@ -74,23 +90,29 @@
                 function loadMain() {
                     sessionStorage.setItem("logOutMsg", "False");
                     document.getElementById("logouttext").innerHTML = "";
-                // This function is essentially just the "login" function but i wanted to be fancy and name it something else (jk)
+                
                     username = document.getElementById("uname")
                     password = document.getElementById("paswd")
-                // IMPORTANT!!
-                // username and password are simply the input elements. In order to retrieve the user's input,
-                // you have to use username.value as shown below. Otherwise it won't work.
-                    if(username.value == "Admin" && password.value == "123456"){
-                        sessionStorage.setItem("username", username.value);
-                        sessionStorage.setItem("loggedIn", "True");
-                        //This is just for future reference- make sure if the loggedIn variable is false, that it takes the user back
-                        //to the login page immediately. This can happen when another user sends a link that skips past the login page.
-                        location.href= "homepage.html"
+
+                    
+                    let user = username.value;
+                    let pw = password.value;
+
+
+                    if(parsedUN.includes(user)){
+                        if(parsedPW.includes(pw)){
+                            sessionStorage.setItem("username", username.value);
+                            sessionStorage.setItem("loggedIn", "True");
+                            location.href= "homepage.html";
+                        }
+                        else{
+                            document.getElementById("errortext").innerHTML = `Incorrect password. Try again.`;
+                        }
                     }
                     else{
-                        document.getElementById("errortext").innerHTML = `Incorrect username or password. Try again.`;
-                        // displays the errortext expained earlier.
-                    }      
+                        document.getElementById("errortext").innerHTML = `Hmm, we don't seem to have that account on our database.`;
+                    }
+
                 }
 
         </script>
@@ -108,7 +130,7 @@
                 margin: 10px;
                 padding:10px;
                 border-radius: 20px;
-                background-color: rgb(1, 64, 1);
+                background-color: #0c4c0b;
                 color: white;
                 width: 150px;
                 height:50px;
