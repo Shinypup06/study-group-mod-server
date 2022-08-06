@@ -1,0 +1,177 @@
+<html>
+
+<!--    This needs to be linked to the login page.-->
+<!--    THINGS THAT NEED TO BE ADDED:
+            1. each field of information needs to be saved to an account.  whenever the user does things
+               like making a post, it needs to be saved to the profile. 
+            2. more importantly, LINK TO BACKEND!! instructions at script tag.-->
+
+    <head>
+        <meta charset="utf-8" />
+
+        <title>
+            Create an Account
+        </title>
+    </head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+
+    
+
+    <body>
+
+        <div id="box">
+        <h1>
+            Create an Account
+        </h1>
+        <br/>
+        <form id="form2" name="form2">
+            <input type="text" placeholder = "Create a Username" id="uname" class="makeAcc">
+            <br/>
+            <input type="password" placeholder = "Create a Password" id="paswd1" class="makeAcc"> 
+            <br/>
+            <input type="password" placeholder = "Confirm Password" id="paswd2" class="makeAcc"> 
+            <br/>
+            <input type="email" placeholder = "Enter your school email" id="email" class="makeAcc"> 
+            <br/>
+            <input type="text" placeholder = "Your Name (optional)" id="name" class="makeAcc"> 
+            <br/>
+
+            <input type="button" id="create" onclick="makeAcc()" value = "Submit">
+            
+        </form>
+
+        <p>Already have an account? <a href="login.html">Login</a></p>
+
+        <p id = "errortext">
+        </p>
+
+
+        </div>
+        <script>
+            // IMPORTANT FOR BACK-END!
+            // The information inputted into the form needs to be stored on the server side. 
+            // MOST IMPORTANTLY, the "accounts" variable needs to be stored on server side.
+            // It contains every account's login info. It needs to be saved, or else nobody will have a real account.
+            // I used sessionStorage for testing purposes, but we need to store the account info on the database.
+            if(sessionStorage.getItem("arrayIsSet") == null){
+                window.location.href = "login.html";
+            }
+
+                function makeAcc() {
+
+                    currentaccs = sessionStorage.getItem("accounts");
+                    console.log(currentaccs);
+
+                    username = document.getElementById("uname");
+                    password = document.getElementById("paswd1");
+                    password2 = document.getElementById("paswd2");
+                    email = document.getElementById("email");
+
+                    console.log(username.value);
+
+                    const parsed = JSON.parse(currentaccs);
+                    const parsedUN = parsed.un;
+                    const parsedPW = parsed.pw;
+
+                    if(parsedUN.includes(username.value)){
+                        document.getElementById("errortext").innerHTML = `That username is already in use.`;
+                    }
+
+                    // else if ()
+
+                    else if (password.value != password2.value){
+                        document.getElementById("errortext").innerHTML = `Your passwords do not match. Check again.`;
+                    }
+
+                    else if (username.value == ''){
+                        document.getElementById("errortext").innerHTML = `Please enter a username.`;
+                    }
+
+                    else if (password.value == ''){
+                        document.getElementById("errortext").innerHTML = `Please enter a password.`;
+                    }
+
+                    else if (username.value.includes(" ")){
+                        document.getElementById("errortext").innerHTML = `Your username cannot contain spaces.`;
+                    }
+
+                    else if (password.value.includes(" ")){
+                        document.getElementById("errortext").innerHTML = `Your password cannot contain spaces.`;
+                    }
+
+                    else if (email.value == ''){
+                        document.getElementById("errortext").innerHTML = `Please enter a valid email.`;
+                    }
+
+                    else if (!email.value.includes("@")){
+                        document.getElementById("errortext").innerHTML = `Please enter a valid email.`;
+                    }
+
+                    else{
+                    parsedUN.push(username.value);
+                    parsedPW.push(password.value);
+
+                    console.log(parsedUN);
+                    console.log(parsedPW);
+
+                    stringlist = (JSON.stringify({"un":parsedUN, "pw": parsedPW}));
+                    sessionStorage.setItem("accounts", stringlist);
+                    location.href="login.html";
+                    }
+
+                }
+
+        </script>
+
+        <style>
+            .makeAcc{
+                border: 2px solid #aaa;
+                margin: 10px;
+                width:150px;
+                padding:10px;
+                border-radius: 20px;
+            }
+
+            #create{
+                margin: 10px;
+                padding:10px;
+                border-radius: 20px;
+                background-color: rgb(1, 64, 1);
+                color: white;
+                width: 150px;
+                height:50px;
+                font-family: "Crete Round";
+                font-size:16;
+            }
+
+            #create:hover{
+                background-color: darkgreen;
+            }
+
+            #box{
+                background-color:rgb(208, 239, 208);
+                padding-left:200px;
+                padding-right:200px;
+                border:10px;
+                border:rgb(1, 64, 1);
+                border-style: solid;
+            }
+            body{
+                text-align:center;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                background-color: rgb(255, 255, 255);
+            }
+            h1 {
+                font-family: "Crete Round";
+                padding-top: 40px;
+            }
+        
+        </style>
+
+    </body>
+</html>
