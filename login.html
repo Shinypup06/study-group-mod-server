@@ -76,8 +76,6 @@
                 const parsed = JSON.parse(accs);
                 const parsedUN = parsed.un;
                 const parsedPW = parsed.pw;
-                console.log(parsedUN.indexOf('Admin'));
-                console.log(parsedPW.indexOf('123456'));
 
                 if(sessionStorage.getItem("logOutMsg")== "True"){
                     document.getElementById("logouttext").innerHTML = "You have been successfully logged out.";
