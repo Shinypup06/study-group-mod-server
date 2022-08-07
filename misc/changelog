@@ -15,3 +15,9 @@ Changes by: Shining
   - The subpages will have a smaller navbar.
   - In case we make more pages (which we probably will), turned all the CSS of the smaller navbar into its separate file.
     - In order to use it, just link it in the <head> section. You still have to copy/paste the html part though.
+
+08/06/2022
+Changes by: Shining
+  - created "Make an Account" system and linked with login
+  - added comments with instructions for back end
+  - Need to work on attaching more information to any given account
