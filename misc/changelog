@@ -20,3 +20,8 @@ Changes by: Shining
   - created "Make an Account" system and linked with login
   - added comments with instructions for back end
   - Need to work on attaching more information to any given account
+
+8/15/2022
+Changes by: Fred 
+  - Connection (or at least attempted) to connect html to php database
+  - 
